@@ -17,13 +17,13 @@ const Footer: React.FC = () => {
       {/* Social Icons */}
       <div className="flex gap-6 mb-8">
         <a href="#" className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center hover:scale-110 transition-all p-3">
-          <img src="/icon sol.png" alt="Solana" className="w-full h-full object-contain" />
+          <img src="/icon-sol.png" alt="Solana" className="w-full h-full object-contain" />
         </a>
         <a href="#" className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center hover:scale-110 transition-all p-3">
-          <img src="/dex logo.png" alt="DexScreener" className="w-full h-full object-contain" />
+          <img src="/dex-logo.png" alt="DexScreener" className="w-full h-full object-contain" />
         </a>
         <a href="#" className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center hover:scale-110 transition-all p-3">
-          <img src="/Icon.png" alt="Icon" className="w-full h-full object-contain" />
+          <img src="/icon-other.png" alt="Icon" className="w-full h-full object-contain" />
         </a>
       </div>
 
