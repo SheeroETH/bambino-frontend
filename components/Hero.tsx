@@ -9,13 +9,13 @@ const Hero: React.FC = () => {
       <div className="bg-white rounded-full px-4 py-1.5 shadow-md mb-6 flex items-center gap-2 hover:animate-none cursor-default transition-all border border-blue-100">
         <div className="flex -space-x-2">
           <div className="w-6 h-6 rounded-full border-2 border-white overflow-hidden bg-white">
-            <img src="/1%20logo.png" alt="Logo 1" className="w-full h-full object-cover" />
+            <img src="/logo-1.png" alt="Logo 1" className="w-full h-full object-cover" />
           </div>
-          <div className="w-6 h-6 rounded-full border-2 border-white overflow-hidden bg-white">
-            <img src="/2%20logo.png" alt="Logo 2" className="w-full h-full object-cover" />
+          <div className="w-6 h-6 rounded-full border-2 border-white overflow-hidden bg-white z-10">
+            <img src="/logo-2.png" alt="Logo 2" className="w-full h-full object-cover" />
           </div>
-          <div className="w-6 h-6 rounded-full border-2 border-white overflow-hidden bg-white">
-            <img src="/3%20logo.png" alt="Logo 3" className="w-full h-full object-cover" />
+          <div className="w-6 h-6 rounded-full border-2 border-white overflow-hidden bg-white z-20">
+            <img src="/logo-3.png" alt="Logo 3" className="w-full h-full object-cover" />
           </div>
         </div>
         <span className="text-gray-700 font-medium text-sm">Become a holder</span>
