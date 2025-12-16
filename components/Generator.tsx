@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Sparkles, Loader2, Download } from 'lucide-react';
 import { generateBambinoImage } from '../services/gemini';
 import { GenerationStatus } from '../types';
@@ -85,39 +86,56 @@ const Generator: React.FC = () => {
       </div>
 
       {/* Generated Image Overlay */}
-      {generatedImage && (
+      {generatedImage && createPortal(
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md animate-in fade-in duration-300"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-md animate-in fade-in duration-300"
           onClick={closeOverlay}
         >
           <div
-            className="relative bg-transparent p-4 outline-none"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the image container
+            className="relative bg-transparent p-4 outline-none flex flex-col items-center gap-6"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the content
           >
             {/* Image Card */}
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white max-w-[90vw] max-h-[80vh]">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white max-w-[90vw] max-h-[60vh]">
               <img
                 src={generatedImage}
                 alt="Generated Bambino"
-                className="w-full h-full object-contain max-h-[70vh] rounded-lg"
+                className="w-full h-full object-contain max-h-[60vh] rounded-lg"
               />
-
-              {/* Download Button Overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                <a
-                  href={generatedImage}
-                  download={`bambino-${Date.now()}.png`}
-                  className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer"
-                  onClick={(e) => e.stopPropagation()} // Allow download click
-                >
-                  <Download className="w-4 h-4" /> Save Image
-                </a>
-              </div>
             </div>
 
-            <p className="text-white/80 text-center mt-4 font-medium text-sm">Click outside to close</p>
+            {/* Download Button */}
+            <button
+              onClick={async (e) => {
+                e.stopPropagation();
+                if (!generatedImage) return;
+
+                try {
+                  const response = await fetch(generatedImage);
+                  const blob = await response.blob();
+                  const url = window.URL.createObjectURL(blob);
+                  const link = document.createElement('a');
+                  link.href = url;
+                  link.download = `bambino-${Date.now()}.png`;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                  window.URL.revokeObjectURL(url);
+                } catch (error) {
+                  console.error('Download failed:', error);
+                  // Fallback if fetch fails (e.g. CORS), though standard browser fetch usually works for images
+                  window.open(generatedImage, '_blank');
+                }
+              }}
+              className="px-8 py-3 rounded-full font-extrabold text-white shadow-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-105 transition-transform flex items-center gap-2 text-lg cursor-pointer"
+            >
+              <Download className="w-5 h-5" /> Download Bambino
+            </button>
+
+            <p className="text-white/80 font-medium text-sm">Click outside to close</p>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
