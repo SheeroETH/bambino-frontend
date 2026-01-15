@@ -22,8 +22,8 @@ const Footer: React.FC = () => {
         <a href="#" className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center hover:scale-110 transition-all p-3">
           <img src="/dex-logo.png" alt="DexScreener" className="w-full h-full object-contain" />
         </a>
-        <a href="#" className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center hover:scale-110 transition-all p-3">
-          <img src="/icon-other.png" alt="Icon" className="w-full h-full object-contain" />
+        <a href="https://x.com/BambinoOnSol" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center hover:scale-110 transition-all p-3">
+          <img src="/icon-other.png" alt="Twitter" className="w-full h-full object-contain" />
         </a>
       </div>
 

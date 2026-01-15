@@ -37,18 +37,17 @@ const Navbar: React.FC = () => {
     if (id === 'builder') {
       const element = document.getElementById('builder');
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
       }
     } else if (id === 'buy') {
       // Assuming Buy takes you to the builder for now, or we could scroll top.
       // Let's scroll to builder as it's the main interactive part
       const element = document.getElementById('builder');
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
       }
     } else if (id === 'community') {
-      // Placeholder
-      console.log("Navigate to Community");
+      window.open('https://x.com/i/communities/2002006976000106652', '_blank');
     }
   };
 

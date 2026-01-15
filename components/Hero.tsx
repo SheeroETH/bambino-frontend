@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Main Title Logo - CSS trickery to mimic the thick font style */}
-      <h1 className="font-logo text-[120px] sm:text-[160px] leading-none text-[#001f3f] select-none drop-shadow-xl transform hover:scale-105 transition-transform duration-300">
+      <h1 className="font-logo text-6xl sm:text-[120px] md:text-[160px] leading-none text-[#001f3f] select-none drop-shadow-xl transform hover:scale-105 transition-transform duration-300 break-words max-w-full">
         Bambino
       </h1>
 

@@ -51,7 +51,7 @@ const Generator: React.FC = () => {
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
               placeholder="Write your prompt (e.g. 'wearing a astronaut suit')"
-              className="flex-1 bg-transparent border-none outline-none px-4 py-3 text-slate-700 placeholder-slate-400 font-medium"
+              className="flex-1 min-w-0 bg-transparent border-none outline-none px-4 py-3 text-slate-700 placeholder-slate-400 font-medium"
               onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
             />
             <button
