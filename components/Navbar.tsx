@@ -48,6 +48,10 @@ const Navbar: React.FC = () => {
       }
     } else if (id === 'community') {
       window.open('https://x.com/i/communities/2002006976000106652', '_blank');
+    } else if (id === 'testimonials') {
+      window.open('https://x.com/BambinoOnSol/status/2014086225330581787', '_blank');
+    } else if (id === 'dex') {
+      window.open('https://dexscreener.com/solana/3nqbvwbuaceue5rpu7okfmbccbpighcwyzcbkwueupj2', '_blank');
     }
   };
 
